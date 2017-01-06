@@ -5,7 +5,7 @@ import debounce from 'debounce';
 import configureStore from './store/configureStore';
 
 const state = JSON.parse(localStorage.getItem('state'));
-const store = configureStore(state);
+const store = configureStore(state || {});
 
 let App = require('./components/app').default;
 const render = (Component) => {
