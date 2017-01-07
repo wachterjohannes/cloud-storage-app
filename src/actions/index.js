@@ -1,13 +1,22 @@
 export const LOCAL_FILE_LIST_COMPLETED = 'LOCAL_FILE_LIST_COMPLETED';
+export const REMOTE_FILE_LIST_COMPLETED = 'REMOTE_FILE_LIST_COMPLETED';
 
 export const FILE_ADDED = 'FILE_ADDED';
 export const FILE_UPDATED = 'FILE_UPDATED';
 export const FILE_REMOVED = 'FILE_REMOVED';
 
-export function localFileListCompleted(files) {
+export function remoteFileListCompleted(files) {
+    return {
+        type: REMOTE_FILE_LIST_COMPLETED,
+        files
+    };
+}
+
+export function localFileListCompleted(files, basePath) {
     return {
         type: LOCAL_FILE_LIST_COMPLETED,
-        files
+        files,
+        basePath
     }
 }
 
