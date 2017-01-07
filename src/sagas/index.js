@@ -8,7 +8,8 @@ function startWatcher(store) {
     // Watch all .js files/dirs in process.cwd()
     gaze(path + '/**/*', function(err, watcher) {
         // Get all watched files
-        actions.localFileListCompleted(this.watched());
+        let files = [].concat.apply([], Object.values(this.watched()));
+        store.dispatch(actions.localFileListCompleted(files));
 
         // On file changed
         this.on('changed', function(filepath) {
